@@ -21,8 +21,22 @@ val circle = Circle(2, 2, 10)
 println(circle.contains(point))
 println(point in circle)
 println("circle area is ${circle.area}")
+
+fun <T, R, U> ((T) -> R).andThen(next: ((R) -> U)): (T) -> U {
+    return { input: T -> next(this(input)) }
+}
+
+fun increment(number: Int): Double {
+    return number + 1.toDouble()
+}
+
+fun double(number: Double) = 2 * number
+
+val incAndDouble = ::increment.andThen(::double)
+println(incAndDouble(5))
 /*
 true
 true
 circle area is 314.1592653589793
+12.0
 */
