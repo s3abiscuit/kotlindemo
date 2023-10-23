@@ -1,0 +1,1 @@
+![operator.png](../../pic/operator.png)
